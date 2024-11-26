@@ -47,7 +47,11 @@ if ingredients_list:
    #New section to display smoothiefroot nutrition information
     import requests
     smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-    st.text(smoothiefroot_response)
+    #st.text(smoothiefroot_response).json()
+    # Assuming the response is in JSON format, use .json() to parse it
+     smoothie_data = smoothiefroot_response.json()
+    # Display the response in Streamlit as text
+     st.text(smoothie_data)
 
     ingredients_string = ''
     for fruit_chosen in ingredients_list:
